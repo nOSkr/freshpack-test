@@ -116,71 +116,65 @@ const HomeScreen = () => {
         }
       />
 
-      {loading ? (
-        <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <ActivityIndicator size={"large"} color={"#3498DB"} />
-        </View>
-      ) : (
-        <View
-          style={{ flex: 1, marginHorizontal: 10, opacity: isOpen ? 0.1 : 1 }}
-        >
-          <FlashList
-            data={data}
-            numColumns={2}
-            showsVerticalScrollIndicator={false}
-            estimatedItemSize={166}
-            renderItem={renderItem}
-            ListHeaderComponent={
-              <>
-                <MyButton
-                  onPress={deleteAccount}
-                  title={"Бүртгэл устгах"}
-                  style={{ marginHorizontal: 10 }}
-                />
-                <ImageBackground
-                  source={require("../../../assets/friday.jpg")}
-                  style={{ width: "100%", height: 120, marginVertical: 10 }}
-                  imageStyle={{ borderRadius: 10 }}
-                >
-                  <View style={{ margin: 10 }}>
-                    <Text
-                      style={{
-                        fontWeight: "300",
-                        fontSize: 20,
-                        color: "white",
-                      }}
-                    >
-                      Онцгой хямдрал
-                    </Text>
-                    <Text
-                      style={{
-                        fontWeight: "bold",
-                        fontSize: 25,
-                        color: "white",
-                      }}
-                    >
-                      -50%
-                    </Text>
-                  </View>
-                </ImageBackground>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: 20,
-                    color: "#3498DB",
-                    marginBottom: 10,
-                  }}
-                >
-                  Онцлох бүтээгдэхүүн
-                </Text>
-              </>
-            }
-            ListFooterComponent={renderLoader}
-            onEndReached={loadMoreItem}
-            onEndReachedThreshold={0}
-          />
-        </View>
-      )}
+      <View
+        style={{ flex: 1, marginHorizontal: 10, opacity: isOpen ? 0.1 : 1 }}
+      >
+        <FlashList
+          data={data}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+          estimatedItemSize={166}
+          renderItem={renderItem}
+          ListHeaderComponent={
+            <>
+              <MyButton
+                onPress={deleteAccount}
+                title={"Бүртгэл устгах"}
+                style={{ marginHorizontal: 10 }}
+              />
+              <ImageBackground
+                source={require("../../../assets/friday.jpg")}
+                style={{ width: "100%", height: 120, marginVertical: 10 }}
+                imageStyle={{ borderRadius: 10 }}
+              >
+                <View style={{ margin: 10 }}>
+                  <Text
+                    style={{
+                      fontWeight: "300",
+                      fontSize: 20,
+                      color: "white",
+                    }}
+                  >
+                    Онцгой хямдрал
+                  </Text>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: 25,
+                      color: "white",
+                    }}
+                  >
+                    -50%
+                  </Text>
+                </View>
+              </ImageBackground>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  fontSize: 20,
+                  color: "#3498DB",
+                  marginBottom: 10,
+                }}
+              >
+                Онцлох бүтээгдэхүүн
+              </Text>
+            </>
+          }
+          ListFooterComponent={renderLoader}
+          onEndReached={loadMoreItem}
+          onEndReachedThreshold={0}
+        />
+      </View>
 
       <BottomSheet
         ref={sheetRef}
